@@ -4,12 +4,83 @@
 
 <head>
 	<link rel="stylesheet" href="styles.css">
+	<style>
+		#grid-container {
+			display:grid;
+			grid-template-columns:repeat(3, 100px);
+			grid-template-rows:repeat(3, 100px);
+			gap:5px;
+		}
+
+		.grid-item {
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border:1px solid black;
+			font-size:24px;
+		}
+	</style>
 </head>
 
 <body>
 	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <!-- <script type="text/javascript" src="./script.js"> -->
+<!-- </script> -->
+
+	<div id="grid-container">
+		<div id="1" class="grid-item">1</div>
+		<div id="2" class="grid-item">2</div>
+		<div id="3" class="grid-item">3</div>
+		<div id="4" class="grid-item">4</div>
+		<div id="5" class="grid-item">5</div>
+		<div id="6" class="grid-item">6</div>
+		<div id="7" class="grid-item">7</div>
+		<div id="8" class="grid-item">8</div>
+		<div id="9" class="grid-item">9</div>
+	</div>
+
+	<div>
+		<label for="block_id">Block ID:</label>
+		<input type="number" id="block_id" min="1" max="9">
+	</div>
+
+	<div>
+		<label for="color_id">Color:</label>
+		<input type="text" id="color_id">
+	</div>
+
+	<button id="change_button">Change</button>
+	<button id="reset_button">Reset</button>
+
+
+	<script>
+		document.getElementById('change_button').addEventListener('click', () => {
+			const blockId = document.getElementById('block_id').value;
+			const color = document.getElementById('color_id').value;
+
+			//reset all grid items to transparent
+			const gridItems = document.querySelectorAll('.grid-item');
+			gridItems.forEach(items => {
+				item.style.backgroundColor = 'transparent';
+			});
+
+			//change the background color of the specified grid item
+			const block = document.getElementById(blockId);
+			if(block) {
+				block.style.backgroundColor = color;
+			} else {
+				alert('Invalid')
+			}
+		});
+
+		document.getElementById('reset_button').addEventListener('click', () => {
+			//reset all grid items to transparent
+			const gridItems = document.querySelectorAll('.grid-item');
+			gridItems.forEach(items => {
+				item.style.backgroundColor = 'transparent';
+			});
+		});
+	</script>
 
 </body>
 
